@@ -1,0 +1,20 @@
+name: Format and Lint
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+        - main
+        - develop
+
+jobs:
+  biome-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      - name: Run Biome
+        run: biome ci .
