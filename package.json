@@ -24,9 +24,15 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^4.6.0",
     "jsdom": "^26.1.0",
+    "msw": "^2.10.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
