@@ -105,13 +105,10 @@ export const userHandlers = [
 				detail: "入力内容にエラーがあります",
 				instance: "/auth/v1/sign_up",
 				properties: {
-					errors: errors.reduce(
-						(acc, error, index) => {
-							acc[index.toString()] = error as any;
-							return acc;
-						},
-						{} as any,
-					),
+					errors: errors.reduce((acc, error, index) => {
+						acc[index.toString()] = error as any;
+						return acc;
+					}, {} as any),
 				} as any,
 			});
 		}
@@ -209,13 +206,10 @@ export const userHandlers = [
 				detail: "入力内容にエラーがあります",
 				instance: "/auth/v1/sign_in",
 				properties: {
-					errors: errors.reduce(
-						(acc, error, index) => {
-							acc[index.toString()] = error as any;
-							return acc;
-						},
-						{} as any,
-					),
+					errors: errors.reduce((acc, error, index) => {
+						acc[index.toString()] = error as any;
+						return acc;
+					}, {} as any),
 				} as any,
 			});
 		}
