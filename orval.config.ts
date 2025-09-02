@@ -26,6 +26,16 @@ export default defineConfig({
       clean: true,
     },
   },
+  taskZod: {
+    input: './schema/task-server.yaml',
+    output: {
+      target: "./src/client/task",
+      client: "zod",
+      fileExtension: ".zod.ts",
+      mode: "tags-split",
+      biome: true,
+    },
+  },
   user: {
     input: './schema/user-server.json',
     output: {
@@ -48,6 +58,16 @@ export default defineConfig({
       },
       biome: true,
       clean: true,
+    },
+  },
+  userZod: {
+    input: './schema/user-server.json',
+    output: {
+      target: "./src/client/user",
+      client: "zod",
+      fileExtension: ".zod.ts",
+      mode: "tags-split",
+      biome: true,
     },
   },
 });
