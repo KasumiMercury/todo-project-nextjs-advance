@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "openapi": "openapi-typescript schema/task-server.yaml --output src/types/api/task.d.ts && openapi-typescript schema/user-server.json --output src/types/api/user.d.ts"
   },
   "dependencies": {
     "next": "15.5.2",
@@ -26,6 +27,8 @@
     "@vitejs/plugin-react": "^5.0.1",
     "jsdom": "^26.1.0",
     "msw": "^2.10.5",
+    "openapi-msw": "^2.0.0",
+    "openapi-typescript": "^7.9.1",
     "pnpm": "10.15.1",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2",
