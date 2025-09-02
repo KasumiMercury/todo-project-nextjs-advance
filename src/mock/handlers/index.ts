@@ -1,5 +1,10 @@
 import type { HttpHandler } from "msw";
-import { taskHandlers } from "./taskHandlers";
-import { userHandlers } from "./userHandlers";
+import { getHealthMock } from "@/client/task/health/health.msw";
+import { getTaskMock } from "@/client/task/task/task.msw";
+import { getUserMock } from "@/client/user/user/user.msw";
 
-export const handlers: HttpHandler[] = [...taskHandlers, ...userHandlers];
+export const handlers: HttpHandler[] = [
+	...getTaskMock(),
+	...getHealthMock(),
+	...getUserMock(),
+];
