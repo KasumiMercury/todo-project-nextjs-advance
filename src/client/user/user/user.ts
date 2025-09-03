@@ -3,14 +3,17 @@
  * Do not edit manually.
  * ToDoUser API
  * TodoアプリバックエンドのUserと認証に関するAPI
- * OpenAPI spec version: v0.0.1
+ * OpenAPI spec version: v0.0.1-26-g2b5d421.dirty
  */
 
 import { userFetch } from "../../fetch/userFetch";
 import type {
-	ProblemDetail,
+	GetI401,
 	SignInDto,
+	SignInJson400,
+	SignInJson401,
 	SignUpDto,
+	SignUpJson400,
 	Token,
 	UserDetail,
 } from ".././schemas";
@@ -24,7 +27,7 @@ export type signUpJsonResponse200 = {
 };
 
 export type signUpJsonResponse400 = {
-	data: ProblemDetail;
+	data: SignUpJson400;
 	status: 400;
 };
 
@@ -61,12 +64,12 @@ export type signInJsonResponse200 = {
 };
 
 export type signInJsonResponse400 = {
-	data: ProblemDetail;
+	data: SignInJson400;
 	status: 400;
 };
 
 export type signInJsonResponse401 = {
-	data: ProblemDetail;
+	data: SignInJson401;
 	status: 401;
 };
 
@@ -104,7 +107,7 @@ export type getIResponse200 = {
 };
 
 export type getIResponse401 = {
-	data: ProblemDetail;
+	data: GetI401;
 	status: 401;
 };
 

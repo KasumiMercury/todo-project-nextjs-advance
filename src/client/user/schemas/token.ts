@@ -3,7 +3,7 @@
  * Do not edit manually.
  * ToDoUser API
  * TodoアプリバックエンドのUserと認証に関するAPI
- * OpenAPI spec version: v0.0.1
+ * OpenAPI spec version: v0.0.1-26-g2b5d421.dirty
  */
 
 export interface Token {

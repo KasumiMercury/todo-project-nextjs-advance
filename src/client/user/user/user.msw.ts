@@ -3,11 +3,18 @@
  * Do not edit manually.
  * ToDoUser API
  * TodoアプリバックエンドのUserと認証に関するAPI
- * OpenAPI spec version: v0.0.1
+ * OpenAPI spec version: v0.0.1-26-g2b5d421.dirty
  */
 import { delay, HttpResponse, http } from "msw";
 
-import type { ProblemDetail, Token, UserDetail } from ".././schemas";
+import type {
+	GetI401,
+	SignInJson400,
+	SignInJson401,
+	SignUpJson400,
+	Token,
+	UserDetail,
+} from ".././schemas";
 
 export const getSignUpJsonResponseMock = (): UserDetail => ({
 	username: "f",
@@ -21,7 +28,7 @@ export const getSignUpJsonResponseMock200 = (): UserDetail => ({
 	createdAt: "2025-07-23T17:06:27.690405800Z",
 });
 
-export const getSignUpJsonResponseMock400 = (): ProblemDetail => ({
+export const getSignUpJsonResponseMock400 = (): SignUpJson400 => ({
 	type: "about:blank",
 	title: "Bad Request",
 	status: 400,
@@ -39,7 +46,7 @@ export const getSignInJsonResponseMock200 = (): Token => ({
 		"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyIiwic3ViIjoiNThlZDk0NzItZWE2MS00ZmZkLTk1YzYtODRiNzc3Nzc0MzUwIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.uqs4KgPYEgJYwSOPnxJNwXh9EIpJ3AKYrPgy0PxLw71V7zoOwLxdXHjDxTKwBhmsnqk18yVpIoOQbWG3Eoaj43z5skkVdtNIHT9cT_23upjtzB0dyT08M8G5TqNIrM96EfChStOxIeaDzaENLLfpucLFDoqDmuKBWqGmGYRgjEt_tXTSB66GJ0Ldrw1N1fLLXitdHGxVJwOhweqsfLLidLPCgfl5c5JbkFevRUWRORMKZ7oGUylXFvonNX8Ohwm4qK82ah_JqRRlllozN74ZrzJQdy4XX88oA9hphcOh7gc4i1iLMsTvK7kOzEQOyuUaSyctJZ61gLeWLhptYqPo4Q",
 });
 
-export const getSignInJsonResponseMock400 = (): ProblemDetail => ({
+export const getSignInJsonResponseMock400 = (): SignInJson400 => ({
 	type: "about:blank",
 	title: "Validation Failed",
 	status: 400,
@@ -54,7 +61,7 @@ export const getSignInJsonResponseMock400 = (): ProblemDetail => ({
 	],
 });
 
-export const getSignInJsonResponseMock401 = (): ProblemDetail => ({
+export const getSignInJsonResponseMock401 = (): SignInJson401 => ({
 	type: "about:blank",
 	title: "Unauthorized",
 	status: 401,
@@ -74,7 +81,7 @@ export const getGetIResponseMock200 = (): UserDetail => ({
 	createdAt: "2025-07-24T15:06:06.647007100Z",
 });
 
-export const getGetIResponseMock401 = (): ProblemDetail => ({
+export const getGetIResponseMock401 = (): GetI401 => ({
 	type: "about:blank",
 	title: "Authentication Failed",
 	status: 401,
@@ -130,10 +137,10 @@ export const getSignUpJsonMockHandler200 = (
 
 export const getSignUpJsonMockHandler400 = (
 	overrideResponse?:
-		| ProblemDetail
+		| SignUpJson400
 		| ((
 				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<ProblemDetail> | ProblemDetail),
+		  ) => Promise<SignUpJson400> | SignUpJson400),
 ) => {
 	return http.post("*/auth/v1/sign_up", async (info) => {
 		await delay(1000);
@@ -199,10 +206,10 @@ export const getSignInJsonMockHandler200 = (
 
 export const getSignInJsonMockHandler400 = (
 	overrideResponse?:
-		| ProblemDetail
+		| SignInJson400
 		| ((
 				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<ProblemDetail> | ProblemDetail),
+		  ) => Promise<SignInJson400> | SignInJson400),
 ) => {
 	return http.post("*/auth/v1/sign_in", async (info) => {
 		await delay(1000);
@@ -222,10 +229,10 @@ export const getSignInJsonMockHandler400 = (
 
 export const getSignInJsonMockHandler401 = (
 	overrideResponse?:
-		| ProblemDetail
+		| SignInJson401
 		| ((
 				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<ProblemDetail> | ProblemDetail),
+		  ) => Promise<SignInJson401> | SignInJson401),
 ) => {
 	return http.post("*/auth/v1/sign_in", async (info) => {
 		await delay(1000);
@@ -291,10 +298,10 @@ export const getGetIMockHandler200 = (
 
 export const getGetIMockHandler401 = (
 	overrideResponse?:
-		| ProblemDetail
+		| GetI401
 		| ((
 				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<ProblemDetail> | ProblemDetail),
+		  ) => Promise<GetI401> | GetI401),
 ) => {
 	return http.get("*/api/v1/users/i", async (info) => {
 		await delay(1000);

@@ -5,12 +5,12 @@
  * TodoアプリバックエンドのUserと認証に関するAPI
  * OpenAPI spec version: v0.0.1-26-g2b5d421.dirty
  */
-import type { ProblemDetailErrorsItem } from "./problemDetailErrorsItem";
+import type { SignUpJson400ErrorsItem } from "./signUpJson400ErrorsItem";
 
 /**
  * RFC 7808 Problem Details with validation errors extension
  */
-export interface ProblemDetail {
+export type SignUpJson400 = {
 	/** 問題の種類を識別するURI */
 	type?: string;
 	/** 問題の概要 */
@@ -22,5 +22,5 @@ export interface ProblemDetail {
 	/** 問題が発生したリクエストのURI */
 	instance?: string;
 	/** バリデーションエラーの詳細リスト */
-	errors?: ProblemDetailErrorsItem[];
-}
+	errors?: SignUpJson400ErrorsItem[];
+};
