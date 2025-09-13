@@ -26,7 +26,7 @@
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.8",
     "@vitejs/plugin-react": "^5.0.1",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.0.0",
     "msw": "^2.10.5",
     "orval": "^7.11.2",
     "pnpm": "10.16.0",
