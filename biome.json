@@ -7,7 +7,15 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!public/mockServiceWorker.js", "!schema"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!public/mockServiceWorker.js",
+      "!schema"
+    ]
   },
   "formatter": {
     "enabled": true,
