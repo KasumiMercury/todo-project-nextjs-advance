@@ -7,16 +7,16 @@
  */
 
 export type ProblemDetailErrorsItem = {
-	/** エラーが発生したフィールド名 */
-	field: string;
-	/**
-	 * エラーメッセージ
-	 * @nullable
-	 */
-	message?: string | null;
-	/**
-	 * 拒否された値
-	 * @nullable
-	 */
-	rejectedValue?: string | null;
+  /** エラーが発生したフィールド名 */
+  field: string;
+  /**
+   * エラーメッセージ
+   * @nullable
+   */
+  message?: string | null;
+  /**
+   * 拒否された値
+   * @nullable
+   */
+  rejectedValue?: string | null;
 };

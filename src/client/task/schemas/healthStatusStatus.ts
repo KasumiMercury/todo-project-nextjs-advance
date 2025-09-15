@@ -10,10 +10,10 @@
  * Overall application health status
  */
 export type HealthStatusStatus =
-	(typeof HealthStatusStatus)[keyof typeof HealthStatusStatus];
+  (typeof HealthStatusStatus)[keyof typeof HealthStatusStatus];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const HealthStatusStatus = {
-	UP: "UP",
-	DOWN: "DOWN",
+  UP: "UP",
+  DOWN: "DOWN",
 } as const;

@@ -13,38 +13,38 @@ import type { ErrorResponse, HealthStatus } from ".././schemas";
  * @summary Get application health status
  */
 export type healthGetHealthResponse200 = {
-	data: HealthStatus;
-	status: 200;
+  data: HealthStatus;
+  status: 200;
 };
 
 export type healthGetHealthResponse500 = {
-	data: ErrorResponse;
-	status: 500;
+  data: ErrorResponse;
+  status: 500;
 };
 
 export type healthGetHealthResponse503 = {
-	data: HealthStatus;
-	status: 503;
+  data: HealthStatus;
+  status: 503;
 };
 
 export type healthGetHealthResponseComposite =
-	| healthGetHealthResponse200
-	| healthGetHealthResponse500
-	| healthGetHealthResponse503;
+  | healthGetHealthResponse200
+  | healthGetHealthResponse500
+  | healthGetHealthResponse503;
 
 export type healthGetHealthResponse = healthGetHealthResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getHealthGetHealthUrl = () => {
-	return `/health`;
+  return `/health`;
 };
 
 export const healthGetHealth = async (
-	options?: RequestInit,
+  options?: RequestInit,
 ): Promise<healthGetHealthResponse> => {
-	return taskFetch<healthGetHealthResponse>(getHealthGetHealthUrl(), {
-		...options,
-		method: "GET",
-	});
+  return taskFetch<healthGetHealthResponse>(getHealthGetHealthUrl(), {
+    ...options,
+    method: "GET",
+  });
 };

@@ -12,23 +12,23 @@ import { userFetch } from "../../fetch/userFetch";
  * @summary JWKsエンドポイント
  */
 export type jwksResponseDefault = {
-	data: unknown;
-	status: number;
+  data: unknown;
+  status: number;
 };
 
 export type jwksResponseComposite = jwksResponseDefault;
 
 export type jwksResponse = jwksResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getJwksUrl = () => {
-	return `/.well-known/jwks.json`;
+  return `/.well-known/jwks.json`;
 };
 
 export const jwks = async (options?: RequestInit): Promise<jwksResponse> => {
-	return userFetch<jwksResponse>(getJwksUrl(), {
-		...options,
-		method: "GET",
-	});
+  return userFetch<jwksResponse>(getJwksUrl(), {
+    ...options,
+    method: "GET",
+  });
 };

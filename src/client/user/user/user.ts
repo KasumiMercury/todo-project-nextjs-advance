@@ -8,122 +8,122 @@
 
 import { userFetch } from "../../fetch/userFetch";
 import type {
-	GetI401,
-	SignInDto,
-	SignInJson400,
-	SignInJson401,
-	SignUpDto,
-	SignUpJson400,
-	Token,
-	UserDetail,
+  GetI401,
+  SignInDto,
+  SignInJson400,
+  SignInJson401,
+  SignUpDto,
+  SignUpJson400,
+  Token,
+  UserDetail,
 } from ".././schemas";
 
 /**
  * @summary ユーザー作成
  */
 export type signUpJsonResponse200 = {
-	data: UserDetail;
-	status: 200;
+  data: UserDetail;
+  status: 200;
 };
 
 export type signUpJsonResponse400 = {
-	data: SignUpJson400;
-	status: 400;
+  data: SignUpJson400;
+  status: 400;
 };
 
 export type signUpJsonResponseComposite =
-	| signUpJsonResponse200
-	| signUpJsonResponse400;
+  | signUpJsonResponse200
+  | signUpJsonResponse400;
 
 export type signUpJsonResponse = signUpJsonResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getSignUpJsonUrl = () => {
-	return `/auth/v1/sign_up`;
+  return `/auth/v1/sign_up`;
 };
 
 export const signUpJson = async (
-	signUpDto: SignUpDto,
-	options?: RequestInit,
+  signUpDto: SignUpDto,
+  options?: RequestInit,
 ): Promise<signUpJsonResponse> => {
-	return userFetch<signUpJsonResponse>(getSignUpJsonUrl(), {
-		...options,
-		method: "POST",
-		headers: { "Content-Type": "application/json", ...options?.headers },
-		body: JSON.stringify(signUpDto),
-	});
+  return userFetch<signUpJsonResponse>(getSignUpJsonUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(signUpDto),
+  });
 };
 
 /**
  * @summary ログイン
  */
 export type signInJsonResponse200 = {
-	data: Token;
-	status: 200;
+  data: Token;
+  status: 200;
 };
 
 export type signInJsonResponse400 = {
-	data: SignInJson400;
-	status: 400;
+  data: SignInJson400;
+  status: 400;
 };
 
 export type signInJsonResponse401 = {
-	data: SignInJson401;
-	status: 401;
+  data: SignInJson401;
+  status: 401;
 };
 
 export type signInJsonResponseComposite =
-	| signInJsonResponse200
-	| signInJsonResponse400
-	| signInJsonResponse401;
+  | signInJsonResponse200
+  | signInJsonResponse400
+  | signInJsonResponse401;
 
 export type signInJsonResponse = signInJsonResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getSignInJsonUrl = () => {
-	return `/auth/v1/sign_in`;
+  return `/auth/v1/sign_in`;
 };
 
 export const signInJson = async (
-	signInDto: SignInDto,
-	options?: RequestInit,
+  signInDto: SignInDto,
+  options?: RequestInit,
 ): Promise<signInJsonResponse> => {
-	return userFetch<signInJsonResponse>(getSignInJsonUrl(), {
-		...options,
-		method: "POST",
-		headers: { "Content-Type": "application/json", ...options?.headers },
-		body: JSON.stringify(signInDto),
-	});
+  return userFetch<signInJsonResponse>(getSignInJsonUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(signInDto),
+  });
 };
 
 /**
  * @summary 現在ログインしているユーザーの取得
  */
 export type getIResponse200 = {
-	data: UserDetail;
-	status: 200;
+  data: UserDetail;
+  status: 200;
 };
 
 export type getIResponse401 = {
-	data: GetI401;
-	status: 401;
+  data: GetI401;
+  status: 401;
 };
 
 export type getIResponseComposite = getIResponse200 | getIResponse401;
 
 export type getIResponse = getIResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getGetIUrl = () => {
-	return `/api/v1/users/i`;
+  return `/api/v1/users/i`;
 };
 
 export const getI = async (options?: RequestInit): Promise<getIResponse> => {
-	return userFetch<getIResponse>(getGetIUrl(), {
-		...options,
-		method: "GET",
-	});
+  return userFetch<getIResponse>(getGetIUrl(), {
+    ...options,
+    method: "GET",
+  });
 };

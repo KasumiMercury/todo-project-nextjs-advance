@@ -11,7 +11,7 @@
 ログインしているユーザー自身の情報
  */
 export interface UserDetail {
-	username: string;
-	userId: string;
-	createdAt: string;
+  username: string;
+  userId: string;
+  createdAt: string;
 }

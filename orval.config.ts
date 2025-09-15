@@ -1,9 +1,8 @@
-import {defineConfig} from 'orval';
-
+import { defineConfig } from "orval";
 
 export default defineConfig({
   task: {
-    input: './schema/task-server.yaml',
+    input: "./schema/task-server.yaml",
     output: {
       target: "./src/client/task",
       schemas: "./src/client/task/schemas",
@@ -20,14 +19,14 @@ export default defineConfig({
         type: "msw",
         useExamples: true,
         generateEachHttpStatus: true,
-        indexMockFiles: true
+        indexMockFiles: true,
       },
       biome: true,
       clean: true,
     },
   },
   taskZod: {
-    input: './schema/task-server.yaml',
+    input: "./schema/task-server.yaml",
     output: {
       target: "./src/client/task",
       client: "zod",
@@ -37,7 +36,7 @@ export default defineConfig({
     },
   },
   user: {
-    input: './schema/user-server.json',
+    input: "./schema/user-server.json",
     output: {
       target: "./src/client/user",
       schemas: "./src/client/user/schemas",
@@ -54,14 +53,14 @@ export default defineConfig({
         type: "msw",
         useExamples: true,
         generateEachHttpStatus: true,
-        indexMockFiles: true
+        indexMockFiles: true,
       },
       biome: true,
       clean: true,
     },
   },
   userZod: {
-    input: './schema/user-server.json',
+    input: "./schema/user-server.json",
     output: {
       target: "./src/client/user",
       client: "zod",

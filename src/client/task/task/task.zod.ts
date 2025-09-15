@@ -13,11 +13,11 @@ import { z as zod } from "zod";
 export const taskGetAllTasksResponseTitleMax = 255;
 
 export const taskGetAllTasksResponseItem = zod.object({
-	id: zod.uuid().describe("The unique identifier for the task"),
-	title: zod
-		.string()
-		.max(taskGetAllTasksResponseTitleMax)
-		.describe("The title of the task"),
+  id: zod.uuid().describe("The unique identifier for the task"),
+  title: zod
+    .string()
+    .max(taskGetAllTasksResponseTitleMax)
+    .describe("The title of the task"),
 });
 export const taskGetAllTasksResponse = zod.array(taskGetAllTasksResponseItem);
 
@@ -27,59 +27,59 @@ export const taskGetAllTasksResponse = zod.array(taskGetAllTasksResponseItem);
 export const taskCreateTaskBodyTitleMax = 255;
 
 export const taskCreateTaskBody = zod.object({
-	title: zod
-		.string()
-		.max(taskCreateTaskBodyTitleMax)
-		.describe("The title of the task"),
+  title: zod
+    .string()
+    .max(taskCreateTaskBodyTitleMax)
+    .describe("The title of the task"),
 });
 
 /**
  * @summary Get a task
  */
 export const taskGetTaskParams = zod.object({
-	taskId: zod.uuid().describe("The ID of the task to retrieve"),
+  taskId: zod.uuid().describe("The ID of the task to retrieve"),
 });
 
 export const taskGetTaskResponseTitleMax = 255;
 
 export const taskGetTaskResponse = zod.object({
-	id: zod.uuid().describe("The unique identifier for the task"),
-	title: zod
-		.string()
-		.max(taskGetTaskResponseTitleMax)
-		.describe("The title of the task"),
+  id: zod.uuid().describe("The unique identifier for the task"),
+  title: zod
+    .string()
+    .max(taskGetTaskResponseTitleMax)
+    .describe("The title of the task"),
 });
 
 /**
  * @summary Update a task
  */
 export const taskUpdateTaskParams = zod.object({
-	taskId: zod.uuid().describe("The ID of the task to update"),
+  taskId: zod.uuid().describe("The ID of the task to update"),
 });
 
 export const taskUpdateTaskBodyTitleMax = 255;
 
 export const taskUpdateTaskBody = zod.object({
-	title: zod
-		.string()
-		.max(taskUpdateTaskBodyTitleMax)
-		.optional()
-		.describe("The title of the task"),
+  title: zod
+    .string()
+    .max(taskUpdateTaskBodyTitleMax)
+    .optional()
+    .describe("The title of the task"),
 });
 
 export const taskUpdateTaskResponseTitleMax = 255;
 
 export const taskUpdateTaskResponse = zod.object({
-	id: zod.uuid().describe("The unique identifier for the task"),
-	title: zod
-		.string()
-		.max(taskUpdateTaskResponseTitleMax)
-		.describe("The title of the task"),
+  id: zod.uuid().describe("The unique identifier for the task"),
+  title: zod
+    .string()
+    .max(taskUpdateTaskResponseTitleMax)
+    .describe("The title of the task"),
 });
 
 /**
  * @summary Delete a task
  */
 export const taskDeleteTaskParams = zod.object({
-	taskId: zod.uuid().describe("The ID of the task to delete"),
+  taskId: zod.uuid().describe("The ID of the task to delete"),
 });

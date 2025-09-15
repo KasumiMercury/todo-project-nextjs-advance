@@ -10,8 +10,8 @@ import type { HealthComponentDetails } from "./healthComponentDetails";
 import type { HealthComponentStatus } from "./healthComponentStatus";
 
 export interface HealthComponent {
-	/** Component health status */
-	status: HealthComponentStatus;
-	/** Additional component details */
-	details?: HealthComponentDetails;
+  /** Component health status */
+  status: HealthComponentStatus;
+  /** Additional component details */
+  details?: HealthComponentDetails;
 }

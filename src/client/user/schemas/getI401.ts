@@ -11,16 +11,16 @@ import type { GetI401ErrorsItem } from "./getI401ErrorsItem";
  * RFC 7808 Problem Details with validation errors extension
  */
 export type GetI401 = {
-	/** 問題の種類を識別するURI */
-	type?: string;
-	/** 問題の概要 */
-	title?: string;
-	/** HTTPステータスコード */
-	status?: number;
-	/** 問題の詳細説明 */
-	detail?: string;
-	/** 問題が発生したリクエストのURI */
-	instance?: string;
-	/** バリデーションエラーの詳細リスト */
-	errors?: GetI401ErrorsItem[];
+  /** 問題の種類を識別するURI */
+  type?: string;
+  /** 問題の概要 */
+  title?: string;
+  /** HTTPステータスコード */
+  status?: number;
+  /** 問題の詳細説明 */
+  detail?: string;
+  /** 問題が発生したリクエストのURI */
+  instance?: string;
+  /** バリデーションエラーの詳細リスト */
+  errors?: GetI401ErrorsItem[];
 };

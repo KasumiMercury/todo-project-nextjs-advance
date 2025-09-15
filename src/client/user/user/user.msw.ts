@@ -8,318 +8,318 @@
 import { delay, HttpResponse, http } from "msw";
 
 import type {
-	GetI401,
-	SignInJson400,
-	SignInJson401,
-	SignUpJson400,
-	Token,
-	UserDetail,
+  GetI401,
+  SignInJson400,
+  SignInJson401,
+  SignUpJson400,
+  Token,
+  UserDetail,
 } from ".././schemas";
 
 export const getSignUpJsonResponseMock = (): UserDetail => ({
-	username: "f",
-	userId: "4f130f04-becf-4470-98bf-6c1c565f1ab4",
-	createdAt: "2025-07-23T17:06:27.690405800Z",
+  username: "f",
+  userId: "4f130f04-becf-4470-98bf-6c1c565f1ab4",
+  createdAt: "2025-07-23T17:06:27.690405800Z",
 });
 
 export const getSignUpJsonResponseMock200 = (): UserDetail => ({
-	username: "f",
-	userId: "4f130f04-becf-4470-98bf-6c1c565f1ab4",
-	createdAt: "2025-07-23T17:06:27.690405800Z",
+  username: "f",
+  userId: "4f130f04-becf-4470-98bf-6c1c565f1ab4",
+  createdAt: "2025-07-23T17:06:27.690405800Z",
 });
 
 export const getSignUpJsonResponseMock400 = (): SignUpJson400 => ({
-	type: "about:blank",
-	title: "Bad Request",
-	status: 400,
-	detail: "ユーザーの作成に失敗しました：[ユーザー名fはすでに使用されています]",
-	instance: "/auth/v1/sign_up",
+  type: "about:blank",
+  title: "Bad Request",
+  status: 400,
+  detail: "ユーザーの作成に失敗しました：[ユーザー名fはすでに使用されています]",
+  instance: "/auth/v1/sign_up",
 });
 
 export const getSignInJsonResponseMock = (): Token => ({
-	token:
-		"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyIiwic3ViIjoiNThlZDk0NzItZWE2MS00ZmZkLTk1YzYtODRiNzc3Nzc0MzUwIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.uqs4KgPYEgJYwSOPnxJNwXh9EIpJ3AKYrPgy0PxLw71V7zoOwLxdXHjDxTKwBhmsnqk18yVpIoOQbWG3Eoaj43z5skkVdtNIHT9cT_23upjtzB0dyT08M8G5TqNIrM96EfChStOxIeaDzaENLLfpucLFDoqDmuKBWqGmGYRgjEt_tXTSB66GJ0Ldrw1N1fLLXitdHGxVJwOhweqsfLLidLPCgfl5c5JbkFevRUWRORMKZ7oGUylXFvonNX8Ohwm4qK82ah_JqRRlllozN74ZrzJQdy4XX88oA9hphcOh7gc4i1iLMsTvK7kOzEQOyuUaSyctJZ61gLeWLhptYqPo4Q",
+  token:
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyIiwic3ViIjoiNThlZDk0NzItZWE2MS00ZmZkLTk1YzYtODRiNzc3Nzc0MzUwIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.uqs4KgPYEgJYwSOPnxJNwXh9EIpJ3AKYrPgy0PxLw71V7zoOwLxdXHjDxTKwBhmsnqk18yVpIoOQbWG3Eoaj43z5skkVdtNIHT9cT_23upjtzB0dyT08M8G5TqNIrM96EfChStOxIeaDzaENLLfpucLFDoqDmuKBWqGmGYRgjEt_tXTSB66GJ0Ldrw1N1fLLXitdHGxVJwOhweqsfLLidLPCgfl5c5JbkFevRUWRORMKZ7oGUylXFvonNX8Ohwm4qK82ah_JqRRlllozN74ZrzJQdy4XX88oA9hphcOh7gc4i1iLMsTvK7kOzEQOyuUaSyctJZ61gLeWLhptYqPo4Q",
 });
 
 export const getSignInJsonResponseMock200 = (): Token => ({
-	token:
-		"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyIiwic3ViIjoiNThlZDk0NzItZWE2MS00ZmZkLTk1YzYtODRiNzc3Nzc0MzUwIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.uqs4KgPYEgJYwSOPnxJNwXh9EIpJ3AKYrPgy0PxLw71V7zoOwLxdXHjDxTKwBhmsnqk18yVpIoOQbWG3Eoaj43z5skkVdtNIHT9cT_23upjtzB0dyT08M8G5TqNIrM96EfChStOxIeaDzaENLLfpucLFDoqDmuKBWqGmGYRgjEt_tXTSB66GJ0Ldrw1N1fLLXitdHGxVJwOhweqsfLLidLPCgfl5c5JbkFevRUWRORMKZ7oGUylXFvonNX8Ohwm4qK82ah_JqRRlllozN74ZrzJQdy4XX88oA9hphcOh7gc4i1iLMsTvK7kOzEQOyuUaSyctJZ61gLeWLhptYqPo4Q",
+  token:
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyIiwic3ViIjoiNThlZDk0NzItZWE2MS00ZmZkLTk1YzYtODRiNzc3Nzc0MzUwIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.uqs4KgPYEgJYwSOPnxJNwXh9EIpJ3AKYrPgy0PxLw71V7zoOwLxdXHjDxTKwBhmsnqk18yVpIoOQbWG3Eoaj43z5skkVdtNIHT9cT_23upjtzB0dyT08M8G5TqNIrM96EfChStOxIeaDzaENLLfpucLFDoqDmuKBWqGmGYRgjEt_tXTSB66GJ0Ldrw1N1fLLXitdHGxVJwOhweqsfLLidLPCgfl5c5JbkFevRUWRORMKZ7oGUylXFvonNX8Ohwm4qK82ah_JqRRlllozN74ZrzJQdy4XX88oA9hphcOh7gc4i1iLMsTvK7kOzEQOyuUaSyctJZ61gLeWLhptYqPo4Q",
 });
 
 export const getSignInJsonResponseMock400 = (): SignInJson400 => ({
-	type: "about:blank",
-	title: "Validation Failed",
-	status: 400,
-	detail: "入力内容にエラーがあります",
-	instance: "/auth/v1/sign_up",
-	errors: [
-		{
-			field: "username",
-			message: "ユーザー名に半角英数字以外が使用されています",
-			rejectedValue: "あ",
-		},
-	],
+  type: "about:blank",
+  title: "Validation Failed",
+  status: 400,
+  detail: "入力内容にエラーがあります",
+  instance: "/auth/v1/sign_up",
+  errors: [
+    {
+      field: "username",
+      message: "ユーザー名に半角英数字以外が使用されています",
+      rejectedValue: "あ",
+    },
+  ],
 });
 
 export const getSignInJsonResponseMock401 = (): SignInJson401 => ({
-	type: "about:blank",
-	title: "Unauthorized",
-	status: 401,
-	detail: "ユーザ名かパスワードが正しくありません",
-	instance: "/auth/v1/sign_in",
+  type: "about:blank",
+  title: "Unauthorized",
+  status: 401,
+  detail: "ユーザ名かパスワードが正しくありません",
+  instance: "/auth/v1/sign_in",
 });
 
 export const getGetIResponseMock = (): UserDetail => ({
-	username: "ab",
-	userId: "77b714bc-f064-42ad-b01c-ad4a1d4bd87e",
-	createdAt: "2025-07-24T15:06:06.647007100Z",
+  username: "ab",
+  userId: "77b714bc-f064-42ad-b01c-ad4a1d4bd87e",
+  createdAt: "2025-07-24T15:06:06.647007100Z",
 });
 
 export const getGetIResponseMock200 = (): UserDetail => ({
-	username: "ab",
-	userId: "77b714bc-f064-42ad-b01c-ad4a1d4bd87e",
-	createdAt: "2025-07-24T15:06:06.647007100Z",
+  username: "ab",
+  userId: "77b714bc-f064-42ad-b01c-ad4a1d4bd87e",
+  createdAt: "2025-07-24T15:06:06.647007100Z",
 });
 
 export const getGetIResponseMock401 = (): GetI401 => ({
-	type: "about:blank",
-	title: "Authentication Failed",
-	status: 401,
-	detail: "Full authentication is required to access this resource",
-	instance: "/api/v1/users/i",
+  type: "about:blank",
+  title: "Authentication Failed",
+  status: 401,
+  detail: "Full authentication is required to access this resource",
+  instance: "/api/v1/users/i",
 });
 
 export const getSignUpJsonMockHandler = (
-	overrideResponse?:
-		| UserDetail
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<UserDetail> | UserDetail),
+  overrideResponse?:
+    | UserDetail
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<UserDetail> | UserDetail),
 ) => {
-	return http.post("*/auth/v1/sign_up", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_up", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignUpJsonResponseMock(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignUpJsonResponseMock(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getSignUpJsonMockHandler200 = (
-	overrideResponse?:
-		| UserDetail
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<UserDetail> | UserDetail),
+  overrideResponse?:
+    | UserDetail
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<UserDetail> | UserDetail),
 ) => {
-	return http.post("*/auth/v1/sign_up", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_up", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignUpJsonResponseMock200(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignUpJsonResponseMock200(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getSignUpJsonMockHandler400 = (
-	overrideResponse?:
-		| SignUpJson400
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<SignUpJson400> | SignUpJson400),
+  overrideResponse?:
+    | SignUpJson400
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<SignUpJson400> | SignUpJson400),
 ) => {
-	return http.post("*/auth/v1/sign_up", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_up", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignUpJsonResponseMock400(),
-			),
-			{ status: 400, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignUpJsonResponseMock400(),
+      ),
+      { status: 400, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getSignInJsonMockHandler = (
-	overrideResponse?:
-		| Token
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<Token> | Token),
+  overrideResponse?:
+    | Token
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<Token> | Token),
 ) => {
-	return http.post("*/auth/v1/sign_in", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_in", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignInJsonResponseMock(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignInJsonResponseMock(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getSignInJsonMockHandler200 = (
-	overrideResponse?:
-		| Token
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<Token> | Token),
+  overrideResponse?:
+    | Token
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<Token> | Token),
 ) => {
-	return http.post("*/auth/v1/sign_in", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_in", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignInJsonResponseMock200(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignInJsonResponseMock200(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getSignInJsonMockHandler400 = (
-	overrideResponse?:
-		| SignInJson400
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<SignInJson400> | SignInJson400),
+  overrideResponse?:
+    | SignInJson400
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<SignInJson400> | SignInJson400),
 ) => {
-	return http.post("*/auth/v1/sign_in", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_in", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignInJsonResponseMock400(),
-			),
-			{ status: 400, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignInJsonResponseMock400(),
+      ),
+      { status: 400, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getSignInJsonMockHandler401 = (
-	overrideResponse?:
-		| SignInJson401
-		| ((
-				info: Parameters<Parameters<typeof http.post>[1]>[0],
-		  ) => Promise<SignInJson401> | SignInJson401),
+  overrideResponse?:
+    | SignInJson401
+    | ((
+        info: Parameters<Parameters<typeof http.post>[1]>[0],
+      ) => Promise<SignInJson401> | SignInJson401),
 ) => {
-	return http.post("*/auth/v1/sign_in", async (info) => {
-		await delay(1000);
+  return http.post("*/auth/v1/sign_in", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getSignInJsonResponseMock401(),
-			),
-			{ status: 401, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getSignInJsonResponseMock401(),
+      ),
+      { status: 401, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getGetIMockHandler = (
-	overrideResponse?:
-		| UserDetail
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<UserDetail> | UserDetail),
+  overrideResponse?:
+    | UserDetail
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<UserDetail> | UserDetail),
 ) => {
-	return http.get("*/api/v1/users/i", async (info) => {
-		await delay(1000);
+  return http.get("*/api/v1/users/i", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getGetIResponseMock(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getGetIResponseMock(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getGetIMockHandler200 = (
-	overrideResponse?:
-		| UserDetail
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<UserDetail> | UserDetail),
+  overrideResponse?:
+    | UserDetail
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<UserDetail> | UserDetail),
 ) => {
-	return http.get("*/api/v1/users/i", async (info) => {
-		await delay(1000);
+  return http.get("*/api/v1/users/i", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getGetIResponseMock200(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getGetIResponseMock200(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getGetIMockHandler401 = (
-	overrideResponse?:
-		| GetI401
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<GetI401> | GetI401),
+  overrideResponse?:
+    | GetI401
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<GetI401> | GetI401),
 ) => {
-	return http.get("*/api/v1/users/i", async (info) => {
-		await delay(1000);
+  return http.get("*/api/v1/users/i", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getGetIResponseMock401(),
-			),
-			{ status: 401, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getGetIResponseMock401(),
+      ),
+      { status: 401, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 export const getUserMock = () => [
-	getSignUpJsonMockHandler(),
-	getSignInJsonMockHandler(),
-	getGetIMockHandler(),
+  getSignUpJsonMockHandler(),
+  getSignInJsonMockHandler(),
+  getGetIMockHandler(),
 ];

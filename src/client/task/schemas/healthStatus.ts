@@ -10,10 +10,10 @@ import type { HealthStatusComponents } from "./healthStatusComponents";
 import type { HealthStatusStatus } from "./healthStatusStatus";
 
 export interface HealthStatus {
-	/** Overall application health status */
-	status: HealthStatusStatus;
-	/** Timestamp of the health check */
-	timestamp: string;
-	/** Health status of individual components */
-	components: HealthStatusComponents;
+  /** Overall application health status */
+  status: HealthStatusStatus;
+  /** Timestamp of the health check */
+  timestamp: string;
+  /** Health status of individual components */
+  components: HealthStatusComponents;
 }

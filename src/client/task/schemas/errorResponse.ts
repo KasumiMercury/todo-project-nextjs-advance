@@ -7,10 +7,10 @@
  */
 
 export interface ErrorResponse {
-	/** Error code */
-	code: number;
-	/** Error message */
-	message: string;
-	/** Additional error details */
-	details?: string;
+  /** Error code */
+  code: number;
+  /** Error message */
+  message: string;
+  /** Additional error details */
+  details?: string;
 }

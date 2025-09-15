@@ -17,21 +17,21 @@ export const signUpJsonBodyUsernameMax = 255;
 export const signUpJsonBodyUsernameRegExp = /[a-zA-Z0-9]+/;
 
 export const signUpJsonBody = zod.object({
-	username: zod
-		.string()
-		.min(signUpJsonBodyUsernameMin)
-		.max(signUpJsonBodyUsernameMax)
-		.regex(signUpJsonBodyUsernameRegExp),
-	password: zod.string().min(1),
+  username: zod
+    .string()
+    .min(signUpJsonBodyUsernameMin)
+    .max(signUpJsonBodyUsernameMax)
+    .regex(signUpJsonBodyUsernameRegExp),
+  password: zod.string().min(1),
 });
 
 export const signUpJsonResponse = zod
-	.object({
-		username: zod.string(),
-		userId: zod.uuid(),
-		createdAt: zod.iso.datetime({}),
-	})
-	.describe("ユーザーの詳細な情報\nログインしているユーザー自身の情報");
+  .object({
+    username: zod.string(),
+    userId: zod.uuid(),
+    createdAt: zod.iso.datetime({}),
+  })
+  .describe("ユーザーの詳細な情報\nログインしているユーザー自身の情報");
 
 /**
  * @summary ログイン
@@ -43,25 +43,25 @@ export const signInJsonBodyUsernameMax = 255;
 export const signInJsonBodyUsernameRegExp = /[a-zA-Z0-9]+/;
 
 export const signInJsonBody = zod.object({
-	username: zod
-		.string()
-		.min(signInJsonBodyUsernameMin)
-		.max(signInJsonBodyUsernameMax)
-		.regex(signInJsonBodyUsernameRegExp),
-	password: zod.string().min(1),
+  username: zod
+    .string()
+    .min(signInJsonBodyUsernameMin)
+    .max(signInJsonBodyUsernameMax)
+    .regex(signInJsonBodyUsernameRegExp),
+  password: zod.string().min(1),
 });
 
 export const signInJsonResponse = zod.object({
-	token: zod.string(),
+  token: zod.string(),
 });
 
 /**
  * @summary 現在ログインしているユーザーの取得
  */
 export const getIResponse = zod
-	.object({
-		username: zod.string(),
-		userId: zod.uuid(),
-		createdAt: zod.iso.datetime({}),
-	})
-	.describe("ユーザーの詳細な情報\nログインしているユーザー自身の情報");
+  .object({
+    username: zod.string(),
+    userId: zod.uuid(),
+    createdAt: zod.iso.datetime({}),
+  })
+  .describe("ユーザーの詳細な情報\nログインしているユーザー自身の情報");

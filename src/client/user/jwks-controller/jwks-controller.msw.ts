@@ -8,18 +8,18 @@
 import { delay, HttpResponse, http } from "msw";
 
 export const getJwksMockHandler = (
-	overrideResponse?:
-		| unknown
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<unknown> | unknown),
+  overrideResponse?:
+    | unknown
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<unknown> | unknown),
 ) => {
-	return http.get("*/.well-known/jwks.json", async (info) => {
-		await delay(1000);
-		if (typeof overrideResponse === "function") {
-			await overrideResponse(info);
-		}
-		return new HttpResponse(null, { status: 200 });
-	});
+  return http.get("*/.well-known/jwks.json", async (info) => {
+    await delay(1000);
+    if (typeof overrideResponse === "function") {
+      await overrideResponse(info);
+    }
+    return new HttpResponse(null, { status: 200 });
+  });
 };
 export const getJwksControllerMock = () => [getJwksMockHandler()];

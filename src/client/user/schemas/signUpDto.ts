@@ -7,12 +7,12 @@
  */
 
 export interface SignUpDto {
-	/**
-	 * @minLength 0
-	 * @maxLength 255
-	 * @pattern [a-zA-Z0-9]+
-	 */
-	username: string;
-	/** @minLength 1 */
-	password: string;
+  /**
+   * @minLength 0
+   * @maxLength 255
+   * @pattern [a-zA-Z0-9]+
+   */
+  username: string;
+  /** @minLength 1 */
+  password: string;
 }

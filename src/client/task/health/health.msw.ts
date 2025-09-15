@@ -10,130 +10,130 @@ import { delay, HttpResponse, http } from "msw";
 import type { ErrorResponse, HealthStatus } from ".././schemas";
 
 export const getHealthGetHealthResponseMock = (): HealthStatus => ({
-	status: "UP",
-	timestamp: "2024-01-15T10:30:00Z",
-	components: {
-		database: {
-			status: "UP",
-			details: { connection: "PostgreSQL", responseTime: "5ms" },
-		},
-	},
+  status: "UP",
+  timestamp: "2024-01-15T10:30:00Z",
+  components: {
+    database: {
+      status: "UP",
+      details: { connection: "PostgreSQL", responseTime: "5ms" },
+    },
+  },
 });
 
 export const getHealthGetHealthResponseMock200 = (): HealthStatus => ({
-	status: "UP",
-	timestamp: "2024-01-15T10:30:00Z",
-	components: {
-		database: {
-			status: "UP",
-			details: { connection: "PostgreSQL", responseTime: "5ms" },
-		},
-	},
+  status: "UP",
+  timestamp: "2024-01-15T10:30:00Z",
+  components: {
+    database: {
+      status: "UP",
+      details: { connection: "PostgreSQL", responseTime: "5ms" },
+    },
+  },
 });
 
 export const getHealthGetHealthResponseMock500 = (): ErrorResponse => ({
-	code: 500,
-	message: "Internal Server Error",
-	details: "Health check service unavailable",
+  code: 500,
+  message: "Internal Server Error",
+  details: "Health check service unavailable",
 });
 
 export const getHealthGetHealthResponseMock503 = (): HealthStatus => ({
-	status: "DOWN",
-	timestamp: "2024-01-15T10:30:00Z",
-	components: {
-		database: { status: "DOWN", details: { error: "Connection refused" } },
-	},
+  status: "DOWN",
+  timestamp: "2024-01-15T10:30:00Z",
+  components: {
+    database: { status: "DOWN", details: { error: "Connection refused" } },
+  },
 });
 
 export const getHealthGetHealthMockHandler = (
-	overrideResponse?:
-		| HealthStatus
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<HealthStatus> | HealthStatus),
+  overrideResponse?:
+    | HealthStatus
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<HealthStatus> | HealthStatus),
 ) => {
-	return http.get("*/health", async (info) => {
-		await delay(1000);
+  return http.get("*/health", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getHealthGetHealthResponseMock(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getHealthGetHealthResponseMock(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getHealthGetHealthMockHandler200 = (
-	overrideResponse?:
-		| HealthStatus
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<HealthStatus> | HealthStatus),
+  overrideResponse?:
+    | HealthStatus
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<HealthStatus> | HealthStatus),
 ) => {
-	return http.get("*/health", async (info) => {
-		await delay(1000);
+  return http.get("*/health", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getHealthGetHealthResponseMock200(),
-			),
-			{ status: 200, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getHealthGetHealthResponseMock200(),
+      ),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getHealthGetHealthMockHandler500 = (
-	overrideResponse?:
-		| ErrorResponse
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<ErrorResponse> | ErrorResponse),
+  overrideResponse?:
+    | ErrorResponse
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<ErrorResponse> | ErrorResponse),
 ) => {
-	return http.get("*/health", async (info) => {
-		await delay(1000);
+  return http.get("*/health", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getHealthGetHealthResponseMock500(),
-			),
-			{ status: 500, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getHealthGetHealthResponseMock500(),
+      ),
+      { status: 500, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 
 export const getHealthGetHealthMockHandler503 = (
-	overrideResponse?:
-		| HealthStatus
-		| ((
-				info: Parameters<Parameters<typeof http.get>[1]>[0],
-		  ) => Promise<HealthStatus> | HealthStatus),
+  overrideResponse?:
+    | HealthStatus
+    | ((
+        info: Parameters<Parameters<typeof http.get>[1]>[0],
+      ) => Promise<HealthStatus> | HealthStatus),
 ) => {
-	return http.get("*/health", async (info) => {
-		await delay(1000);
+  return http.get("*/health", async (info) => {
+    await delay(1000);
 
-		return new HttpResponse(
-			JSON.stringify(
-				overrideResponse !== undefined
-					? typeof overrideResponse === "function"
-						? await overrideResponse(info)
-						: overrideResponse
-					: getHealthGetHealthResponseMock503(),
-			),
-			{ status: 503, headers: { "Content-Type": "application/json" } },
-		);
-	});
+    return new HttpResponse(
+      JSON.stringify(
+        overrideResponse !== undefined
+          ? typeof overrideResponse === "function"
+            ? await overrideResponse(info)
+            : overrideResponse
+          : getHealthGetHealthResponseMock503(),
+      ),
+      { status: 503, headers: { "Content-Type": "application/json" } },
+    );
+  });
 };
 export const getHealthMock = () => [getHealthGetHealthMockHandler()];

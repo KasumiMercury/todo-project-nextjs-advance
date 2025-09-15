@@ -11,21 +11,21 @@ import { z as zod } from "zod";
  * @summary Get application health status
  */
 export const healthGetHealthResponse = zod.object({
-	status: zod
-		.enum(["UP", "DOWN"])
-		.describe("Overall application health status"),
-	timestamp: zod.iso.datetime({}).describe("Timestamp of the health check"),
-	components: zod
-		.object({
-			database: zod
-				.object({
-					status: zod.enum(["UP", "DOWN"]).describe("Component health status"),
-					details: zod
-						.record(zod.string(), zod.any())
-						.optional()
-						.describe("Additional component details"),
-				})
-				.optional(),
-		})
-		.describe("Health status of individual components"),
+  status: zod
+    .enum(["UP", "DOWN"])
+    .describe("Overall application health status"),
+  timestamp: zod.iso.datetime({}).describe("Timestamp of the health check"),
+  components: zod
+    .object({
+      database: zod
+        .object({
+          status: zod.enum(["UP", "DOWN"]).describe("Component health status"),
+          details: zod
+            .record(zod.string(), zod.any())
+            .optional()
+            .describe("Additional component details"),
+        })
+        .optional(),
+    })
+    .describe("Health status of individual components"),
 });

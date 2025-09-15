@@ -11,5 +11,5 @@ import type { HealthComponent } from "./healthComponent";
  * Health status of individual components
  */
 export type HealthStatusComponents = {
-	database?: HealthComponent;
+  database?: HealthComponent;
 };

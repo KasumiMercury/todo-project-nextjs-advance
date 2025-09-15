@@ -7,9 +7,9 @@
  */
 
 export interface TaskUpdate {
-	/**
-	 * The title of the task
-	 * @maxLength 255
-	 */
-	title?: string;
+  /**
+   * The title of the task
+   * @maxLength 255
+   */
+  title?: string;
 }

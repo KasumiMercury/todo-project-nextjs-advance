@@ -13,231 +13,231 @@ import type { ErrorResponse, Task, TaskCreate, TaskUpdate } from ".././schemas";
  * @summary Get all tasks
  */
 export type taskGetAllTasksResponse200 = {
-	data: Task[];
-	status: 200;
+  data: Task[];
+  status: 200;
 };
 
 export type taskGetAllTasksResponse401 = {
-	data: ErrorResponse;
-	status: 401;
+  data: ErrorResponse;
+  status: 401;
 };
 
 export type taskGetAllTasksResponse500 = {
-	data: ErrorResponse;
-	status: 500;
+  data: ErrorResponse;
+  status: 500;
 };
 
 export type taskGetAllTasksResponseComposite =
-	| taskGetAllTasksResponse200
-	| taskGetAllTasksResponse401
-	| taskGetAllTasksResponse500;
+  | taskGetAllTasksResponse200
+  | taskGetAllTasksResponse401
+  | taskGetAllTasksResponse500;
 
 export type taskGetAllTasksResponse = taskGetAllTasksResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getTaskGetAllTasksUrl = () => {
-	return `/tasks`;
+  return `/tasks`;
 };
 
 export const taskGetAllTasks = async (
-	options?: RequestInit,
+  options?: RequestInit,
 ): Promise<taskGetAllTasksResponse> => {
-	return taskFetch<taskGetAllTasksResponse>(getTaskGetAllTasksUrl(), {
-		...options,
-		method: "GET",
-	});
+  return taskFetch<taskGetAllTasksResponse>(getTaskGetAllTasksUrl(), {
+    ...options,
+    method: "GET",
+  });
 };
 
 /**
  * @summary Create a new task
  */
 export type taskCreateTaskResponse201 = {
-	data: Task;
-	status: 201;
+  data: Task;
+  status: 201;
 };
 
 export type taskCreateTaskResponse400 = {
-	data: ErrorResponse;
-	status: 400;
+  data: ErrorResponse;
+  status: 400;
 };
 
 export type taskCreateTaskResponse401 = {
-	data: ErrorResponse;
-	status: 401;
+  data: ErrorResponse;
+  status: 401;
 };
 
 export type taskCreateTaskResponse500 = {
-	data: ErrorResponse;
-	status: 500;
+  data: ErrorResponse;
+  status: 500;
 };
 
 export type taskCreateTaskResponseComposite =
-	| taskCreateTaskResponse201
-	| taskCreateTaskResponse400
-	| taskCreateTaskResponse401
-	| taskCreateTaskResponse500;
+  | taskCreateTaskResponse201
+  | taskCreateTaskResponse400
+  | taskCreateTaskResponse401
+  | taskCreateTaskResponse500;
 
 export type taskCreateTaskResponse = taskCreateTaskResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getTaskCreateTaskUrl = () => {
-	return `/tasks`;
+  return `/tasks`;
 };
 
 export const taskCreateTask = async (
-	taskCreate: TaskCreate,
-	options?: RequestInit,
+  taskCreate: TaskCreate,
+  options?: RequestInit,
 ): Promise<taskCreateTaskResponse> => {
-	return taskFetch<taskCreateTaskResponse>(getTaskCreateTaskUrl(), {
-		...options,
-		method: "POST",
-		headers: { "Content-Type": "application/json", ...options?.headers },
-		body: JSON.stringify(taskCreate),
-	});
+  return taskFetch<taskCreateTaskResponse>(getTaskCreateTaskUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(taskCreate),
+  });
 };
 
 /**
  * @summary Get a task
  */
 export type taskGetTaskResponse200 = {
-	data: Task;
-	status: 200;
+  data: Task;
+  status: 200;
 };
 
 export type taskGetTaskResponse401 = {
-	data: ErrorResponse;
-	status: 401;
+  data: ErrorResponse;
+  status: 401;
 };
 
 export type taskGetTaskResponse404 = {
-	data: ErrorResponse;
-	status: 404;
+  data: ErrorResponse;
+  status: 404;
 };
 
 export type taskGetTaskResponse500 = {
-	data: ErrorResponse;
-	status: 500;
+  data: ErrorResponse;
+  status: 500;
 };
 
 export type taskGetTaskResponseComposite =
-	| taskGetTaskResponse200
-	| taskGetTaskResponse401
-	| taskGetTaskResponse404
-	| taskGetTaskResponse500;
+  | taskGetTaskResponse200
+  | taskGetTaskResponse401
+  | taskGetTaskResponse404
+  | taskGetTaskResponse500;
 
 export type taskGetTaskResponse = taskGetTaskResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getTaskGetTaskUrl = (taskId: string) => {
-	return `/tasks/${taskId}`;
+  return `/tasks/${taskId}`;
 };
 
 export const taskGetTask = async (
-	taskId: string,
-	options?: RequestInit,
+  taskId: string,
+  options?: RequestInit,
 ): Promise<taskGetTaskResponse> => {
-	return taskFetch<taskGetTaskResponse>(getTaskGetTaskUrl(taskId), {
-		...options,
-		method: "GET",
-	});
+  return taskFetch<taskGetTaskResponse>(getTaskGetTaskUrl(taskId), {
+    ...options,
+    method: "GET",
+  });
 };
 
 /**
  * @summary Update a task
  */
 export type taskUpdateTaskResponse200 = {
-	data: Task;
-	status: 200;
+  data: Task;
+  status: 200;
 };
 
 export type taskUpdateTaskResponse400 = {
-	data: ErrorResponse;
-	status: 400;
+  data: ErrorResponse;
+  status: 400;
 };
 
 export type taskUpdateTaskResponse401 = {
-	data: ErrorResponse;
-	status: 401;
+  data: ErrorResponse;
+  status: 401;
 };
 
 export type taskUpdateTaskResponse404 = {
-	data: ErrorResponse;
-	status: 404;
+  data: ErrorResponse;
+  status: 404;
 };
 
 export type taskUpdateTaskResponse500 = {
-	data: ErrorResponse;
-	status: 500;
+  data: ErrorResponse;
+  status: 500;
 };
 
 export type taskUpdateTaskResponseComposite =
-	| taskUpdateTaskResponse200
-	| taskUpdateTaskResponse400
-	| taskUpdateTaskResponse401
-	| taskUpdateTaskResponse404
-	| taskUpdateTaskResponse500;
+  | taskUpdateTaskResponse200
+  | taskUpdateTaskResponse400
+  | taskUpdateTaskResponse401
+  | taskUpdateTaskResponse404
+  | taskUpdateTaskResponse500;
 
 export type taskUpdateTaskResponse = taskUpdateTaskResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getTaskUpdateTaskUrl = (taskId: string) => {
-	return `/tasks/${taskId}`;
+  return `/tasks/${taskId}`;
 };
 
 export const taskUpdateTask = async (
-	taskId: string,
-	taskUpdate: TaskUpdate,
-	options?: RequestInit,
+  taskId: string,
+  taskUpdate: TaskUpdate,
+  options?: RequestInit,
 ): Promise<taskUpdateTaskResponse> => {
-	return taskFetch<taskUpdateTaskResponse>(getTaskUpdateTaskUrl(taskId), {
-		...options,
-		method: "PUT",
-		headers: { "Content-Type": "application/json", ...options?.headers },
-		body: JSON.stringify(taskUpdate),
-	});
+  return taskFetch<taskUpdateTaskResponse>(getTaskUpdateTaskUrl(taskId), {
+    ...options,
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(taskUpdate),
+  });
 };
 
 /**
  * @summary Delete a task
  */
 export type taskDeleteTaskResponse204 = {
-	data: null;
-	status: 204;
+  data: null;
+  status: 204;
 };
 
 export type taskDeleteTaskResponse401 = {
-	data: ErrorResponse;
-	status: 401;
+  data: ErrorResponse;
+  status: 401;
 };
 
 export type taskDeleteTaskResponse500 = {
-	data: ErrorResponse;
-	status: 500;
+  data: ErrorResponse;
+  status: 500;
 };
 
 export type taskDeleteTaskResponseComposite =
-	| taskDeleteTaskResponse204
-	| taskDeleteTaskResponse401
-	| taskDeleteTaskResponse500;
+  | taskDeleteTaskResponse204
+  | taskDeleteTaskResponse401
+  | taskDeleteTaskResponse500;
 
 export type taskDeleteTaskResponse = taskDeleteTaskResponseComposite & {
-	headers: Headers;
+  headers: Headers;
 };
 
 export const getTaskDeleteTaskUrl = (taskId: string) => {
-	return `/tasks/${taskId}`;
+  return `/tasks/${taskId}`;
 };
 
 export const taskDeleteTask = async (
-	taskId: string,
-	options?: RequestInit,
+  taskId: string,
+  options?: RequestInit,
 ): Promise<taskDeleteTaskResponse> => {
-	return taskFetch<taskDeleteTaskResponse>(getTaskDeleteTaskUrl(taskId), {
-		...options,
-		method: "DELETE",
-	});
+  return taskFetch<taskDeleteTaskResponse>(getTaskDeleteTaskUrl(taskId), {
+    ...options,
+    method: "DELETE",
+  });
 };

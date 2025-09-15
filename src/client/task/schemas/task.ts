@@ -7,11 +7,11 @@
  */
 
 export interface Task {
-	/** The unique identifier for the task */
-	id: string;
-	/**
-	 * The title of the task
-	 * @maxLength 255
-	 */
-	title: string;
+  /** The unique identifier for the task */
+  id: string;
+  /**
+   * The title of the task
+   * @maxLength 255
+   */
+  title: string;
 }
