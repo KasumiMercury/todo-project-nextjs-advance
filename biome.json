@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!schema"]
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!public/mockServiceWorker.js", "!schema"]
   },
   "formatter": {
     "enabled": true,
@@ -16,11 +16,15 @@
   },
   "linter": {
     "enabled": true,
+    "includes": ["**", "!public/mockServiceWorker.js", "!schema"],
     "rules": {
       "recommended": true,
       "correctness": {
         "noUnusedVariables": "warn",
         "noUnusedImports": "warn"
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off"
       }
     },
     "domains": {
