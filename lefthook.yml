@@ -1,0 +1,8 @@
+pre-push:
+  jobs:
+    - name: lint 
+      run: pnpm biome lint
+
+    - name: format
+      run: pnpm biome format
+
