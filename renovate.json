@@ -4,6 +4,6 @@
   "git-submodules": {
     "enabled": true
   },
-  "minimumReleaseAge": "1 days",
+  "minimumReleaseAge": "7 days",
   "internalChecksFilter": "strict"
 }
