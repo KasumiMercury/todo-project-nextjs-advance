@@ -18,3 +18,20 @@ jobs:
           version: latest
       - name: Run Biome
         run: biome ci .
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Run Trivy Scan
+        uses: aquasecurity/trivy-action@b6643a29fecd7f34b3597bc6acb0a98b03d33ff8 # 0.33.1
+        with:
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          scan-type: 'fs'
+          vuln-type: 'os,library'
+          ignore-unfixed: true
+          dir: '.'
+
