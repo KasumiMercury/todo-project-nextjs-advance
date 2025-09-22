@@ -6,7 +6,7 @@ export async function register() {
   if (process.env.NEXT_RUNTIME === "nodejs") {
     if (
       process.env.NODE_ENV === "development" &&
-      process.env.NEXT_PUBLIC_MSW_ENABLED === "true"
+      process.env.NEXT_PUBLIC_MSW_ENABLED !== "false"
     ) {
       try {
         if (server) {
