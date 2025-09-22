@@ -2,22 +2,24 @@
 
 import { type ReactNode, Suspense, use } from "react";
 
-const mockingEnabledPromise =
+const shouldEnableMocking =
   typeof window !== "undefined" &&
   process.env.NEXT_RUNTIME !== "nodejs" &&
-  process.env.NEXT_PUBLIC_MSW_ENABLED === "true"
-    ? import("@/mock/browser").then(async ({ worker }) => {
-        await worker.start({
-          onUnhandledRequest: (req, print) => {
-            if (req.url.includes("_next")) {
-              return;
-            }
-            print.warning();
-          },
-        });
-        console.log("[MSW] Browser worker started");
-      })
-    : Promise.resolve();
+  process.env.NEXT_PUBLIC_MSW_ENABLED !== "false";
+
+const mockingEnabledPromise = shouldEnableMocking
+  ? import("@/mock/browser").then(async ({ worker }) => {
+      await worker.start({
+        onUnhandledRequest: (req, print) => {
+          if (req.url.includes("_next")) {
+            return;
+          }
+          print.warning();
+        },
+      });
+      console.log("[MSW] Browser worker started");
+    })
+  : Promise.resolve();
 
 export function MSWProvider({
   children,
