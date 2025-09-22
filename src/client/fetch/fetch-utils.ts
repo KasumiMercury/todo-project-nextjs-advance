@@ -13,11 +13,7 @@ const getBody = <T>(c: Response | Request): Promise<T> => {
 };
 
 const getUrl = (baseUrl: string, contextUrl: string): string => {
-  const url = new URL(contextUrl);
-  const pathname = url.pathname;
-  const search = url.search;
-
-  const requestUrl = new URL(`${baseUrl}${pathname}${search}`);
+  const requestUrl = new URL(contextUrl, baseUrl);
 
   return requestUrl.toString();
 };
